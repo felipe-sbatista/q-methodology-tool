@@ -1,0 +1,80 @@
+<div style="background-color: #fafafa; height: 100%;width: 100%;
+overflow-x: hidden; justify-content: center;">
+  <div style="display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;">
+    <div style="display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;">
+      <h2>Classification</h2>
+    </div>
+    <div class="main-card">
+      <progress [max]="maxBar" [value]="statusBar">
+
+      </progress>
+
+      <div class="flex-container-column" style="padding: 3em;
+      width: 100%;">
+        <div class="flex-center">
+          <div class="example-container">
+            <h2 class="container-drag-title" style="background-color: #5698dd;">Statements</h2>
+
+            <div style="background-color: #9CC0E7;" cdkDropList #mainList="cdkDropList"
+              [cdkDropListData]="currentStatment" [cdkDropListConnectedTo]="[positiveList, neutralList, negativeList]"
+              class="example-list" (cdkDropListDropped)="dropCurrent($event)">
+              <div style="background-color: #9CC0E7;" class="example-box" *ngFor="let item of currentStatment" cdkDrag>
+                {{item}}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-container-row" style="justify-content: space-between; margin-top: 3em;">
+          <div class="example-container container-drag">
+            <h2 class="container-drag-title" style="background-color: #ff7f7f;">Negatives</h2>
+
+            <div style="background-color: #ffcccc;" cdkDropList #neutralList="cdkDropList"
+              [cdkDropListData]="structures.get('negative')" [cdkDropListConnectedTo]="[positiveList, negativeList]"
+              class="example-list" (cdkDropListDropped)="drop($event, 'negative')">
+              <div style="background-color: #ffcccc;" class="example-box"
+                *ngFor="let item of structures.get('negative')" cdkDrag>{{item}}</div>
+            </div>
+          </div>
+
+
+          <div class="example-container container-drag">
+            <h2 class="container-drag-title" style="color: white; background-color: #58534c;">Neutrals</h2>
+
+            <div style="background-color: #d4c9b9;" cdkDropList #negativeList="cdkDropList"
+              [cdkDropListData]="structures.get('neutral')" [cdkDropListConnectedTo]="[positiveList, neutralList]"
+              class="example-list" (cdkDropListDropped)="drop($event, 'neutral')">
+              <div style="background-color: #d4c9b9;" class="example-box" *ngFor="let item of structures.get('neutral')"
+                cdkDrag>{{item}}</div>
+            </div>
+          </div>
+
+
+
+          <div class="example-container container-drag">
+            <h2 class="container-drag-title" style="background-color: #4ca64c;">Positives</h2>
+
+            <div style="background-color: #99cc99;" cdkDropList #positiveList="cdkDropList"
+              [cdkDropListData]="structures.get('positive')" [cdkDropListConnectedTo]="[neutralList, negativeList]"
+              class="example-list" (cdkDropListDropped)="drop($event, 'positive')">
+              <div style="background-color: #99cc99;" class="example-box"
+                *ngFor="let item of structures.get('positive')" cdkDrag>{{item}}</div>
+            </div>
+          </div>
+
+        </div>
+        <div class="flex-center" style="margin-top: 3em;">
+          <button style="background-color: #5698dd;" [disabled]="statements.length !== 0" mat-raised-button
+            color="primary" (click)="moveFoward()">Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

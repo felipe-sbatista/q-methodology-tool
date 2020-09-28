@@ -1,0 +1,111 @@
+<div class="flex-container-row" style="justify-content: space-between;">
+    <div class="example-container container-drag">
+        <h2 class="container-drag-title" style="background-color: #ff7f7f;">-3</h2>
+        <div cdkDropList #negative3="cdkDropList" [cdkDropListData]="structures.get('-3')"
+            [cdkDropListConnectedTo]="[neutral0, negative1, negative2, positive1, positive2, positive3]"
+            class="example-list" (cdkDropListDropped)="drop($event, '-3')">
+            <div class="example-box" *ngFor="let item of structures.get('-3')" cdkDrag>{{item}}</div>
+        </div>
+    </div>
+
+    <div class="example-container container-drag">
+        <h2 class="container-drag-title" style="background-color: #ff7f7f;">-2</h2>
+        <div cdkDropList #negative2="cdkDropList" [cdkDropListData]="structures.get('-2')"
+            [cdkDropListConnectedTo]="[neutral0, negative1, negative3, positive1, positive2, positive3]"
+            class="example-list" (cdkDropListDropped)="drop($event, '-2')">
+            <div class="example-box" *ngFor="let item of structures.get('-2')" cdkDrag>{{item}}</div>
+        </div>
+    </div>
+
+    <div class="example-container container-drag">
+        <h2 class="container-drag-title" style="background-color: #ff7f7f;">-1</h2>
+        <div cdkDropList #negative1="cdkDropList" [cdkDropListData]="structures.get('-1')"
+            [cdkDropListConnectedTo]="[neutral0, negative2, negative3, positive1, positive2, positive3]"
+            class="example-list" (cdkDropListDropped)="drop($event,'-1')">
+            <div class="example-box" *ngFor="let item of structures.get('-1')" cdkDrag>{{item}}</div>
+        </div>
+    </div>
+
+    <div class="example-container container-drag">
+        <h2 class="container-drag-title" style="background-color: #ff7f7f;">0</h2>
+        <div cdkDropList #neutral0="cdkDropList" [cdkDropListData]="structures.get('0')"
+            [cdkDropListConnectedTo]="[negative1, negative2, negative3, positive1, positive2, positive3]"
+            class="example-list" (cdkDropListDropped)="drop($event, '0')">
+            <div class="example-box" *ngFor="let item of structures.get('0')" cdkDrag>{{item}}</div>
+        </div>
+    </div>
+
+    <div class="example-container container-drag">
+        <h2 class="container-drag-title" style="background-color: #ff7f7f;">1</h2>
+        <div cdkDropList #positive1="cdkDropList" [cdkDropListData]="structures.get('1')"
+            [cdkDropListConnectedTo]="[negative1, negative2, negative3, neutral0, positive2, positive3]"
+            class="example-list" (cdkDropListDropped)="drop($event,  '1')">
+            <div class="example-box" *ngFor="let item of structures.get('1')" cdkDrag>{{item}}</div>
+        </div>
+    </div>
+
+    <div class="example-container container-drag">
+        <h2 class="container-drag-title" style="background-color: #ff7f7f;">2</h2>
+        <div cdkDropList #positive2="cdkDropList" [cdkDropListData]="structures.get('2')"
+            [cdkDropListConnectedTo]="[neutral0, negative1, negative2, negative3, positive1, positive3]"
+            class="example-list" (cdkDropListDropped)="drop($event, '2')">
+            <div class="example-box" *ngFor="let item of structures.get('2')" cdkDrag>{{item}}</div>
+        </div>
+    </div>
+
+    <div class="example-container container-drag">
+        <h2 class="container-drag-title" style="background-color: #ff7f7f;">3</h2>
+        <div cdkDropList #positive3="cdkDropList" [cdkDropListData]="structures.get('3')"
+            [cdkDropListConnectedTo]="[neutral0, negative1, negative2, negative3, positive2, positive1]"
+            class="example-list" (cdkDropListDropped)="drop($event, '3')">
+            <div class="example-box" *ngFor="let item of structures.get('3')" cdkDrag>{{item}}</div>
+        </div>
+    </div>
+</div>
+
+
+<ng-container *ngIf="true">
+
+    <div class="flex-container-row" style="justify-content: center;">
+        <div class="example-container container-drag container-drag">
+            <h2 class="container-drag-title" style="background-color: #ff7f7f;">DISAGREE</h2>
+            <div cdkDropList #disagree="cdkDropList" [cdkDropListData]="structures.get('negative')"
+                [cdkDropListConnectedTo]="[neutral0, negative1, negative2, negative3, positive3,  positive2, positive1]"
+                class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of structures.get('negative')" cdkDrag>{{item}}</div>
+            </div>
+        </div>
+
+
+
+        <div class="example-container container-drag container-drag">
+            <h2 class="container-drag-title" style="background-color: #ff7f7f;">NEUTRAL</h2>
+            <div cdkDropList #neutral="cdkDropList" [cdkDropListData]="structures.get('neutral')"
+                [cdkDropListConnectedTo]="[neutral0, negative1, negative2, negative3,  positive3, positive2, positive1]"
+                class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of structures.get('neutral')" cdkDrag>{{item}}</div>
+            </div>
+        </div>
+
+
+
+        <div class="example-container container-drag container-drag">
+            <h2 class="container-drag-title" style="background-color: #ff7f7f;">AGREE</h2>
+            <div cdkDropList #agree="cdkDropList" [cdkDropListData]="structures.get('positive')"
+                [cdkDropListConnectedTo]="[neutral0, negative1, negative2, negative3,  positive3, positive2, positive1]"
+                class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of structures.get('positive')" cdkDrag>{{item}}</div>
+            </div>
+        </div>
+    </div>
+
+</ng-container>
+
+
+<div class="flex-center">
+    <button mat-raised-button color="primary" (click)="moveBack()">Back</button>
+    <button [disabled]="structures.get('positive').length === 0
+    && structures.get('negative').length === 0
+    && structures.get('neutral').length === 0" mat-raised-button color="primary"
+        (click)="redirectToExplain()">Continue</button>
+</div>

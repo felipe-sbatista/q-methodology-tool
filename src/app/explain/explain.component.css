@@ -1,0 +1,15 @@
+:host{
+    background-color: #313638;
+}
+
+.main-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: auto;
+  text-align: center;
+  margin-left: 6%;
+  margin-right: 6%;
+  display: flex;
+  border-radius: 7px;
+  justify-content: center;
+  background-color: #fafafa;
+}

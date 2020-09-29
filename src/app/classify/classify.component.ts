@@ -53,7 +53,7 @@ export class ClassifyComponent implements OnInit {
         event.previousIndex,
         event.currentIndex);
 
-      this.mapStatements.get(event.container.data[0]).status = status;
+      this.mapStatements.get(event.container.data[event.currentIndex]).status = status;
       this.statusBar++;
       if (this.statements.length > 0) {
         this.currentStatment = [this.statements.pop()];

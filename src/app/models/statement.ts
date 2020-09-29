@@ -5,8 +5,10 @@ export class Statement {
     text: string;
     explanation: string;
 
-    constructor(id, text) {
+    constructor(id: number, text: string, status: string = undefined, classification: string = undefined) {
         this.id = id;
         this.text = text;
+        this.status = status;
+        this.classification = classification;
     }
 }

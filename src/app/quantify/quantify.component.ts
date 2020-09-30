@@ -11,32 +11,42 @@ import { Statement } from '../models/statement';
 })
 export class QuantifyComponent implements OnInit {
 
+  public statusBar = 0;
+  public maxBar = 0;
   public structures = new Map<string, Statement[]>();
   public classifiedStatements: any;
   public mapStatements: Map<string, Statement>;
-  public level = 0;
   public levels = [];
-
+  public totalStatements = 0;
+  public objectKeys = Object.keys;
+  public levelsMap: Map<string, any>;
 
 
   constructor(private reader: ReaderService, private router: Router) { }
 
   ngOnInit() {
-    this.level = this.reader.getHighestLevel();
-    for (let i = -this.level; i <= this.level; i++) {
-      this.levels.push(i);
+    if (!this.reader.configuration) {
+      this.moveBack();
     }
+    this.levels = this.reader.configuration.levels;
+    this.levelsMap = new Map<string, any>();
+    this.levels.forEach(e => this.levelsMap.set(Object.keys(e)[0],
+      {
+        total: e[Object.keys(e)[0]],
+        count: 0
+      }));
+
     this.createStructure();
     this.mapStatements = this.reader.getStatements();
-    this.mapStatements = new Map<string, Statement>();
-    this.mapStatements.set('felipe', new Statement(1, 'felipe', 'negative', '-1'));
-    this.mapStatements.set('amanda', new Statement(2, 'amanda', 'positive'));
-    this.mapStatements.set('igor', new Statement(3, 'igor', 'negative'));
-    this.mapStatements.set('amanda2', new Statement(4, 'amanda2', 'positive'));
-    this.mapStatements.set('igor2', new Statement(5, 'igor2', 'neutral'));
-    this.mapStatements.forEach((v, k) =>
+    this.maxBar = this.mapStatements.size;
+
+    this.mapStatements.forEach((v, k) => {
       this.structures.get(v.status).push(v)
-    );
+      if (!!v.classification) {
+        this.levelsMap.get(v.classification).count++;
+        this.statusBar++;
+      }
+    });
   }
 
   private createStructure() {
@@ -58,11 +68,21 @@ export class QuantifyComponent implements OnInit {
     }
   }
   public setQuantify(item: Statement, level: string): void {
-    if (!!item.classification && item.classification == level) {
-      item.classification = undefined;
+    if (!!item.classification) {
+      if (item.classification == level) {
+        item.classification = undefined;
+        this.levelsMap.get(level).count--;
+        this.statusBar--;
+      } else {
+        this.levelsMap.get(item.classification).count--;
+        item.classification = level;
+        this.levelsMap.get(level).count++;
+      }
       return;
     }
     item.classification = level;
+    this.levelsMap.get(level).count++;
+    this.statusBar++;
   }
 
   public moveBack(): void {
@@ -71,6 +91,31 @@ export class QuantifyComponent implements OnInit {
 
   public redirectToExplain() {
     this.router.navigate(['/explain']);
+  }
+
+  public isFinished(): boolean {
+    for (const item of this.levelsMap.values()) {
+      if (item.count !== item.total) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  public setThStatus(item: Statement): string {
+    switch (item.status) {
+      case 'negative':
+        return 'bg-negative';
+
+      case 'positive':
+        return 'bg-positive';
+
+      case 'neutral':
+        return 'bg-neutral';
+
+      default:
+        return '';
+    }
   }
 
 

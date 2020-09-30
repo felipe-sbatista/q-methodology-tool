@@ -34,6 +34,7 @@ export class ClassifyComponent implements OnInit {
         this.currentStatment = [this.statements.pop()];
       });
     } else {
+      this.statusBar = this.maxBar = this.mapStatements.size; 
       this.mapStatements.forEach((v, k) => this.structures.get(v.status).push(k));
     }
   }

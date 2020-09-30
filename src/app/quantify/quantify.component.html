@@ -4,67 +4,38 @@
             <h2>Classification</h2>
         </div>
         <div class="main-card">
+            <progress [max]="maxBar" [value]="statusBar">
 
+            </progress>
+      
             <div class="container-cards">
-                <div *ngFor="let levelNumber of levels" class="card">
-                    <h3>{{levelNumber}}</h3>
+                <div *ngFor="let item of levelsMap | keyvalue" class="card">
+                    <h2 class="container-drag-title">{{item.key}}</h2>
+                    <h3>{{item.value.count}} / {{item.value.total}}</h3>
                 </div>
 
             </div>
             <div class="flex-container-column" style="justify-content: center; ">
                 <div style="display: flex; max-height: 20em; overflow: auto; overflow-x: hidden; flex-direction: column;">
-                    <table *ngFor="let item of structures.get('negative')" id="table-statements">
+                    <table *ngFor="let item of structures.get('negative').concat(structures.get('neutral')).concat(structures.get('positive')) " id="table-statements">
                         <thead>
                             <tr>
-                                <th style="background-color: #ff7f7f;">{{item.text}}</th>
+                                <th [ngClass]="setThStatus(item)">{{item.text}}</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td [ngClass]="{'selected-level': item.classification == level}"
-                                    (click)="setQuantify(item, level)" *ngFor="let level of levels">{{level}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <table *ngFor="let item of structures.get('positive')" id="table-statements">
-                        <thead>
-                            <tr>
-                                <th style="background-color: #99cc99;">{{item.text}}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td [ngClass]="{'selected-level': item.classification == level}"
-                                    (click)="setQuantify(item, level)" *ngFor="let level of levels">{{level}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <table *ngFor="let item of structures.get('neutral')" id="table-statements">
-                        <thead>
-                            <tr>
-                                <th style="background-color: #d4c9b9;">{{item.text}}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td [ngClass]="{'selected-level': item.classification == level}"
-                                    (click)="setQuantify(item, level)" *ngFor="let level of levels">{{level}}</td>
+                                <td [ngClass]="{'selected-level': item.classification == objectKeys(level)[0]}"
+                                    (click)="setQuantify(item, objectKeys(level)[0])" *ngFor="let level of levels">{{objectKeys(level)[0]}}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-
-
-
             <div class="flex-center">
-                <button mat-raised-button color="primary" (click)="moveBack()">Back</button>
-                <button [disabled]="structures.get('positive').length === 0
-    && structures.get('negative').length === 0
-    && structures.get('neutral').length === 0" mat-raised-button color="primary"
+                <button style="background-color: #5698dd;" mat-raised-button color="primary" (click)="moveBack()">Back</button>
+                <button style="background-color: #5698dd;" [disabled]="!isFinished()" mat-raised-button color="primary"
                     (click)="redirectToExplain()">Continue</button>
             </div>
 

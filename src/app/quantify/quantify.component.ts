@@ -41,7 +41,7 @@ export class QuantifyComponent implements OnInit {
     this.maxBar = this.mapStatements.size;
 
     this.mapStatements.forEach((v, k) => {
-      this.structures.get(v.status).push(v)
+      this.structures.get(v.status).push(v);
       if (!!v.classification) {
         this.levelsMap.get(v.classification).count++;
         this.statusBar++;

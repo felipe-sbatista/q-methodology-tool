@@ -72,7 +72,7 @@ progress[value]::-webkit-progress-value {
 .container-drag-title {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
-  background-color: #5698dd;
+  background-color: var(--primary-color)
 }
 
 h2 {

@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+  --primary-color: #5698dd
+}
+
 
 html,
 body {
@@ -10,10 +14,15 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.flex-container {
+  display: flex;
+}
+
 .flex-center {
   display: flex;
   justify-content: center;
 }
+
 
 .flex-container-row {
   display: flex;

@@ -16,7 +16,7 @@
 
             <div style="background-color: #9CC0E7;" cdkDropList #mainList="cdkDropList"
               [cdkDropListData]="currentStatment" [cdkDropListConnectedTo]="[positiveList, neutralList, negativeList]"
-              class="example-list" (cdkDropListDropped)="dropCurrent($event)">
+              class="example-list">
               <div style="background-color: #9CC0E7;" class="example-box" *ngFor="let item of currentStatment" cdkDrag>
                 {{item}}
               </div>
@@ -62,11 +62,13 @@
           </div>
 
         </div>
-        <div class="flex-center" style="margin-top: 3em;">
-          <button style="background-color: #5698dd;" [disabled]="currentStatment.length !== 0" mat-raised-button
-            color="primary" (click)="moveFoward()">Continue</button>
-        </div>
+
       </div>
     </div>
+   
+  </div>
+  <div class="flex-center" style="margin-top: 3em;">
+    <button style="background-color: #5698dd;" [disabled]="currentStatment.length !== 0" mat-raised-button
+      color="primary" (click)="moveFoward()">Continue</button>
   </div>
 </div>

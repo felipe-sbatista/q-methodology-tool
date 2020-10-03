@@ -4,7 +4,6 @@
             <h2>Classification</h2>
         </div>
         <div class="flex-container-column">
-
             <mat-card>
                 <mat-card-header>
                     <mat-card-subtitle>
@@ -42,4 +41,8 @@
             </div>
         </div>
     </div>
+</div>
+<div *ngIf="isStoring"  class="loading">
+    <mat-progress-spinner color="primary" mode="indeterminate">
+    </mat-progress-spinner>
 </div>

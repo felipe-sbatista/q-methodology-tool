@@ -9,13 +9,13 @@
             </progress>
       
             <div class="container-cards">
-                <div *ngFor="let item of levelsMap | keyvalue" class="card">
+                <div *ngFor="let item of levelsMap | keyvalue: asIsOrder" class="card">
                     <h2 class="container-drag-title">{{item.key}}</h2>
                     <h3>{{item.value.count}} / {{item.value.total}}</h3>
                 </div>
 
             </div>
-            <div class="flex-container-column" style="justify-content: center; ">
+            <div class="flex-container-column" style="justify-content: center; padding: 1em;">
                 <div style="display: flex; max-height: 20em; overflow: auto; overflow-x: hidden; flex-direction: column;">
                     <table *ngFor="let item of structures.get('negative').concat(structures.get('neutral')).concat(structures.get('positive')) " id="table-statements">
                         <thead>
@@ -33,12 +33,13 @@
                 </div>
             </div>
 
-            <div class="flex-center">
-                <button style="background-color: #5698dd;" mat-raised-button color="primary" (click)="moveBack()">Back</button>
-                <button style="background-color: #5698dd;" [disabled]="!isFinished()" mat-raised-button color="primary"
-                    (click)="redirectToExplain()">Continue</button>
-            </div>
 
         </div>
+    </div>
+
+    <div class="flex-center">
+        <button style="background-color: #5698dd; margin: 1em;" mat-raised-button color="primary" (click)="moveBack()">Back</button>
+        <button style="background-color: #5698dd; margin: 1em;" [disabled]="!isFinished()" mat-raised-button color="primary"
+            (click)="redirectToExplain()">Continue</button>
     </div>
 </div>

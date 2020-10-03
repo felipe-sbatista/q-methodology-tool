@@ -1,8 +1,9 @@
-textarea{
+textarea {
   outline: none;
   resize: none;
   overflow: auto;
 }
+
 .container {
   display: block;
   height: 500px;
@@ -12,7 +13,6 @@ textarea{
 
 .main-card {
   margin: 1em;
-  padding: 1em;
   text-align: center;
   display: flex;
   border-radius: 15px;
@@ -52,7 +52,11 @@ textarea{
   width: 100%;
 }
 
-
+.section-carousel {
+  display: flex;
+  width: 100%;
+  max-width: 56em;
+}
 
 @media (max-width: 1024px) {
   .main-card {
@@ -73,8 +77,13 @@ textarea{
     width: 100%;
     min-width: unset;
   }
-  textarea{
+
+  textarea {
     columns: 27;
+  }
+
+  .section-carousel{
+    max-width: 45em;
   }
 
 }

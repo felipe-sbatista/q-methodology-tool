@@ -1,4 +1,10 @@
 <div class="carousel">
+    <div class="flex-container" style="align-items: center;">
+        <a (click)="onPreviousClick()">
+            <span class="left"></span>
+        </a>
+    </div>
+
     <div class="content">
         <div class="container-statement">
             <div class="card-title">
@@ -7,24 +13,20 @@
         </div>
         <div class="container-statement" style="height: 11em;">
             <div class="card">
-
-                <div class="flex-container" style="align-items: center;">
-                    <a (click)="onPreviousClick()">
-                        <span class="left"></span>
-                    </a>
-                </div>
                 <ng-container *ngFor="let slide of items; let i = index">
-                    <div *ngIf="i === currentSlide" class="slide" @carouselAnimation>
+                    <div style="margin-top: -11px;" *ngIf="i === currentSlide" class="slide" @carouselAnimation>
                         {{slide}}
                     </div>
                 </ng-container>
 
-                <div class="flex-container" style="align-items: center;">
-                    <a (click)="onNextClick()">
-                        <span class="right"></span>
-                    </a>
-                </div>
             </div>
         </div>
+
+    </div>
+
+    <div class="flex-container" style="align-items: center;">
+        <a (click)="onNextClick()">
+            <span class="right"></span>
+        </a>
     </div>
 </div>

@@ -19,13 +19,9 @@ export class ExplainComponent implements OnInit {
   constructor(private readerService: ReaderService, private router: Router) { }
 
   ngOnInit() {
-    const level = 3 //this.readerService.getHighestLevel();
-    const mapStatements = new Map<string, Statement>();
-    mapStatements.set('felipe', new Statement(1, 'felipe', 'negative', '-3'));
-    mapStatements.set('amanda', new Statement(2, 'amanda', 'positive', '3'));
-    mapStatements.set('igor', new Statement(3, 'igor', 'negative', '3'));
-    mapStatements.set('amanda2', new Statement(4, 'amanda2', 'positive', '2'));
-    mapStatements.set('igor2', new Statement(5, 'igor2', 'neutral'));
+    const level = this.readerService.getHighestLevel();
+    const mapStatements = this.readerService.getStatements();
+
     mapStatements.forEach((v, k) => {
       if (level === Math.abs(Number(v.classification))) {
         this.extremeStatements.set(k, v);
@@ -33,13 +29,6 @@ export class ExplainComponent implements OnInit {
     });
     this.items = Array.from(this.extremeStatements.keys());
     this.actualItem = this.extremeStatements.get(this.items[0]);
-    // this.mapStatements = this.readerService.getStatements();
-    // const lastLevel: number = this.readerService.getHighestLevel();
-    // for (const st of this.mapStatements.values()) {
-    //   if (Math.abs(Number(st.classification)) === lastLevel) {
-    //     this.statementsToEvaluate.push(st);
-    //   }
-    // }
   }
 
   public selectItem(event: any): void {

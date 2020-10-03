@@ -35,6 +35,7 @@ export class QuantifyComponent implements OnInit {
         total: e[Object.keys(e)[0]],
         count: 0
       }));
+    this.levelsMap = new Map([...this.levelsMap.entries()].sort((a, b) => a[1] - b[1]));
 
     this.createStructure();
     this.mapStatements = this.reader.getStatements();
@@ -117,6 +118,11 @@ export class QuantifyComponent implements OnInit {
         return '';
     }
   }
+
+  public asIsOrder(a, b) {
+    return 1;
+  }
+  
 
 
 }

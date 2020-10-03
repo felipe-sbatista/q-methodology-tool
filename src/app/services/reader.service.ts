@@ -20,7 +20,7 @@ export class ReaderService {
     this.client.get<any>('./assets/config/statements.json')
       .subscribe(e => {
         e.statements.forEach((element: string) => this.statements.set(element, new Statement(id++, element)));
-        this.configuration = new Configuration(e.levels, e.firebase.key, e.firebase.user);
+        this.configuration = new Configuration(e.levels);
       })
       .add(() => subject.next(this.statements));
     return subject;

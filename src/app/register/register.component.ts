@@ -5,6 +5,7 @@ import { Statement } from '../models/statement';
 import { FirebaseService } from '../services/firebase.service';
 
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -13,6 +14,8 @@ import { FirebaseService } from '../services/firebase.service';
 export class RegisterComponent implements OnInit {
 
   constructor(private reader: ReaderService, private firebaseService: FirebaseService) { }
+
+  isStoring = !false;
 
   userOcupation = '';
   ocupations = ['Tester', 'Product Manager', 'Developer', 'Intern', 'Researcher', 'Software Engineer'];
@@ -44,12 +47,13 @@ export class RegisterComponent implements OnInit {
         age: this.userAge
       }
     };
-    this.firebaseService.storeData(result);
+    this.firebaseService.storeData(result).then(() => {
+      console.log('salvo');
+    });
   }
 
   public export(): void {
-    // const statements = Array.from(this.reader.getStatements().values());
-    let statements = [new Statement(1, 'hello world', 'negative', '-2')];
+    const statements = Array.from(this.reader.getStatements().values());
     const result = {
       statements,
       user: {

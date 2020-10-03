@@ -1,5 +1,8 @@
+
+
 :host {
     width: 100%;
+    --color: #5698dd;
 }
 
 .carousel {
@@ -15,9 +18,13 @@
     left: 0;
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
     transition: transform 150ms cubic-bezier(0.25, 0.46, 0.45, 0.84);
     border-radius: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -34,7 +41,6 @@
     border-top-right-radius: 6px;
     background-color: var(--primary-color);
     color: white;
-    max-width: 54em;
     width: 100%;
 }
 
@@ -43,10 +49,9 @@
     display: flex;
     justify-content: space-evenly;
     background-color: white;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border: 1px solid #dedede;
     width: 100%;
     flex-direction: row;
-    max-width: 54em;
     word-break: break-all;
     background-color: #fafafa;
     border-bottom-left-radius: 10px;
@@ -57,22 +62,9 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    max-width: 54em;
+
 }
 
-
-@media (max-width: 768px) {
-    .container-statement {
-        max-width: 45em;
-    }
-}
-
-
-@media (max-width: 425px) {
-    .container-statement {
-        max-width: 40em;
-    }
-}
 
 /* arrows   */
 
@@ -91,7 +83,6 @@ a:hover .right {
 a:hover .left:after,
 a:hover .right:after {
     border-top: 0.5em solid #9CC0E7;
-    ;
     border-right: 0.5em solid #9CC0E7;
 }
 
@@ -99,9 +90,7 @@ a:hover .right:after {
     display: inline-block;
     width: 3em;
     height: 3em;
-    border: 0.5em solid #5698dd;
     border-radius: 50%;
-    margin-right: 1.5em;
 }
 
 .left:after {
@@ -111,8 +100,8 @@ a:hover .right:after {
     margin-left: 0.6em;
     width: 1em;
     height: 1em;
-    border-top: 0.5em solid #5698dd;
-    border-right: 0.5em solid #5698dd;
+    border-top: 0.5em solid var(--color);
+    border-right: 0.5em solid var(--color);
     -moz-transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
     transform: rotate(-135deg);
@@ -122,9 +111,7 @@ a:hover .right:after {
     display: inline-block;
     width: 3em;
     height: 3em;
-    border: 0.5em solid #5698dd;
     border-radius: 50%;
-    margin-left: 1.5em;
 }
 
 .right:after {
@@ -134,8 +121,8 @@ a:hover .right:after {
     margin-left: -0.6em;
     width: 1em;
     height: 1em;
-    border-top: 0.5em solid #5698dd;
-    border-right: 0.5em solid #5698dd;
+    border-top: 0.5em solid var(--color);
+    border-right: 0.5em solid var(--color);
     -moz-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);

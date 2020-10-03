@@ -21,3 +21,9 @@
     align-items: center;
     width: 100%;
 }
+
+.loading {
+    z-index: 1;
+    top: 50%;
+    height: 50%;
+}

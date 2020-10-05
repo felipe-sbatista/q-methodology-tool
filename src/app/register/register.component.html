@@ -1,48 +1,53 @@
-<div class="container-page">
+<div class="container-page" [ngClass]="{'opacity': isStoring}">
     <div class="container-content">
         <div class="container-title">
-            <h2>Classification</h2>
+            <h2>Register</h2>
         </div>
         <div class="flex-container-column">
-            <mat-card>
-                <mat-card-header>
+
+            <div class="flex-container" style="padding: 1em;">
+                <mat-card>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Country</mat-label>
+                        <input [(ngModel)]="userCountry" matInput>
+                    </mat-form-field>
+                </mat-card>
+            </div>
+
+            <div class="flex-container" style="padding: 1em;">
+                <mat-card>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Age</mat-label>
+                        <input max="99" type="number" [(ngModel)]="userAge" matInput>
+                    </mat-form-field>
+                </mat-card>
+            </div>
+
+            <div class="flex-container" style="padding:1em">
+                <mat-card>
                     <mat-card-subtitle>
                         Ocupation
                     </mat-card-subtitle>
-                </mat-card-header>
-                <div class="flex-container">
-                    <mat-radio-group [(ngModel)]="userOcupation">
-                        <mat-radio-button color="primary" style="margin-right: 6px;" *ngFor="let item of ocupations"
-                            class="example-margin" [value]="item">{{item}}
-                        </mat-radio-button>
-                    </mat-radio-group>
-                </div>
-            </mat-card>
-
-            <mat-card>
-                <mat-form-field class="example-full-width">
-                    <mat-label>Country</mat-label>
-                    <input [(ngModel)]="userCountry" matInput>
-                </mat-form-field>
-            </mat-card>
-
-            <mat-card>
-                <mat-form-field class="example-full-width">
-                    <mat-label>Age</mat-label>
-                    <input max="99" type="number" [(ngModel)]="userAge" matInput>
-                </mat-form-field>
-            </mat-card>
+                    <div class="flex-container">
+                        <mat-radio-group [(ngModel)]="userOcupation">
+                            <mat-radio-button color="primary" style="margin-right: 6px;" *ngFor="let item of ocupations"
+                                class="example-margin" [value]="item">{{item}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </mat-card>
+            </div>
 
             <div style="display: flex; height: 10%; justify-content: center;">
-                <button style="background-color: #5698dd;" [disabled]="!isFinished()" mat-raised-button color="primary"
-                    (click)="export()">Export</button>
-                <button style="background-color: #5698dd;" [disabled]="!isFinished()" mat-raised-button color="primary"
-                    (click)="nextStep()">Finish</button>
+                <button style="background-color: #5698dd; margin: 1em;" [disabled]="!isFinished()" mat-raised-button
+                    color="primary" (click)="export()">Export</button>
+                <button style="background-color: #5698dd; margin: 1em;" [disabled]="!isFinished()" mat-raised-button
+                    color="primary" (click)="nextStep()">Finish</button>
             </div>
         </div>
     </div>
 </div>
-<div *ngIf="isStoring"  class="loading">
+<div *ngIf="isStoring" class="loading">
     <mat-progress-spinner color="primary" mode="indeterminate">
     </mat-progress-spinner>
 </div>

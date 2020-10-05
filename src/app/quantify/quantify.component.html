@@ -1,7 +1,7 @@
 <div class="container-page">
     <div class="container-content">
         <div class="container-title">
-            <h2>Classification</h2>
+            <h2>Quantification</h2>
         </div>
         <div class="main-card">
             <progress [max]="maxBar" [value]="statusBar">
@@ -32,14 +32,11 @@
                     </table>
                 </div>
             </div>
-
-
         </div>
-    </div>
-
-    <div class="flex-center">
-        <button style="background-color: #5698dd; margin: 1em;" mat-raised-button color="primary" (click)="moveBack()">Back</button>
-        <button style="background-color: #5698dd; margin: 1em;" [disabled]="!isFinished()" mat-raised-button color="primary"
-            (click)="redirectToExplain()">Continue</button>
+        <div class="flex-center">
+            <button style="background-color: #5698dd; margin: 1em;" mat-raised-button color="primary" (click)="moveBack()">Back</button>
+            <button style="background-color: #5698dd; margin: 1em;" [disabled]="!isFinished()" mat-raised-button color="primary"
+                (click)="redirectToExplain()">Continue</button>
+        </div>
     </div>
 </div>

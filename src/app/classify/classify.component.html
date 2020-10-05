@@ -14,7 +14,7 @@
           <div class="example-container" style="width: 66%;">
             <h2 class="container-drag-title" style="background-color: #5698dd;">Statements</h2>
 
-            <div style="background-color: #9CC0E7;" cdkDropList #mainList="cdkDropList"
+            <div id="main-list" style="background-color: #9CC0E7;" cdkDropList #mainList="cdkDropList"
               [cdkDropListData]="currentStatment" [cdkDropListConnectedTo]="[positiveList, neutralList, negativeList]"
               class="example-list">
               <div style="background-color: #9CC0E7;" class="example-box" *ngFor="let item of currentStatment" cdkDrag>
@@ -25,6 +25,8 @@
         </div>
 
         <div class="flex-container-row" style="justify-content: space-between; margin-top: 3em;">
+
+
           <div class="example-container container-drag">
             <h2 class="container-drag-title" style="background-color: #ff7f7f;">Negatives</h2>
 
@@ -32,9 +34,22 @@
               [cdkDropListData]="structures.get('negative')" [cdkDropListConnectedTo]="[positiveList, negativeList]"
               class="example-list" (cdkDropListDropped)="drop($event, 'negative')">
               <div style="background-color: #ffcccc;" class="example-box"
-                *ngFor="let item of structures.get('negative')" cdkDrag>{{item}}</div>
+                *ngFor="let item of structures.get('negative')" cdkDrag>
+                <div class="example-handle" style="color: #ff7f7f;" cdkDragHandle>
+                  <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+                    </path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                  </svg>
+                </div>
+                
+                {{item}}
+
+              </div>
             </div>
           </div>
+
 
 
           <div class="example-container container-drag">
@@ -44,7 +59,21 @@
               [cdkDropListData]="structures.get('neutral')" [cdkDropListConnectedTo]="[positiveList, neutralList]"
               class="example-list" (cdkDropListDropped)="drop($event, 'neutral')">
               <div style="background-color: #d4c9b9;" class="example-box" *ngFor="let item of structures.get('neutral')"
-                cdkDrag>{{item}}</div>
+                cdkDrag>
+                
+                <div class="example-handle" style="color: #58534c;" cdkDragHandle>
+                  <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+                    </path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                  </svg>
+                </div>
+
+                {{item}}
+              
+              
+              </div>
             </div>
           </div>
 
@@ -57,7 +86,19 @@
               [cdkDropListData]="structures.get('positive')" [cdkDropListConnectedTo]="[neutralList, negativeList]"
               class="example-list" (cdkDropListDropped)="drop($event, 'positive')">
               <div style="background-color: #99cc99;" class="example-box"
-                *ngFor="let item of structures.get('positive')" cdkDrag>{{item}}</div>
+                *ngFor="let item of structures.get('positive')" cdkDrag>
+                
+                <div class="example-handle" style="color: #4ca64c;" cdkDragHandle>
+                  <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+                    </path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                  </svg>
+                </div>
+
+                {{item}}
+              </div>
             </div>
           </div>
 
@@ -65,7 +106,7 @@
 
       </div>
     </div>
-   
+
   </div>
   <div class="flex-center" style="margin-top: 3em;">
     <button style="background-color: #5698dd;" [disabled]="currentStatment.length !== 0" mat-raised-button

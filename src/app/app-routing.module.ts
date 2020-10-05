@@ -5,6 +5,7 @@ import { ClassifyComponent } from './classify/classify.component';
 import { QuantifyComponent } from './quantify/quantify.component';
 import { ExplainComponent } from './explain/explain.component';
 import { RegisterComponent } from './register/register.component';
+import { FinishComponent } from './components/finish/finish.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'finish',
+    component: FinishComponent
   }
 
 ];

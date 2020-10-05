@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { ReaderService } from '../services/reader.service';
 import { Statement } from '../models/statement';
 import { FirebaseService } from '../services/firebase.service';
+import { Router } from '@angular/router';
 
 
 
@@ -13,9 +14,9 @@ import { FirebaseService } from '../services/firebase.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private reader: ReaderService, private firebaseService: FirebaseService) { }
+  constructor(private reader: ReaderService, private firebaseService: FirebaseService, private router: Router) { }
 
-  isStoring = !false;
+  isStoring = false;
 
   userOcupation = '';
   ocupations = ['Tester', 'Product Manager', 'Developer', 'Intern', 'Researcher', 'Software Engineer'];
@@ -47,8 +48,9 @@ export class RegisterComponent implements OnInit {
         age: this.userAge
       }
     };
+    this.isStoring = true;
     this.firebaseService.storeData(result).then(() => {
-      console.log('salvo');
+      this.router.navigate(['/finish']);
     });
   }
 

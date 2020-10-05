@@ -27,6 +27,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
+import { FinishComponent } from './components/finish/finish.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { environment } from 'src/environments/environment';
     InformationComponent,
     RegisterComponent,
     ExplainComponent,
-    CarouselComponent
+    CarouselComponent,
+    FinishComponent
   ],
   imports: [
     BrowserModule,

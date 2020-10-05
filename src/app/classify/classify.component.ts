@@ -34,7 +34,7 @@ export class ClassifyComponent implements OnInit {
         this.currentStatment = [this.statements.pop()];
       });
     } else {
-      this.statusBar = this.maxBar = this.mapStatements.size; 
+      this.statusBar = this.maxBar = this.mapStatements.size;
       this.mapStatements.forEach((v, k) => this.structures.get(v.status).push(k));
     }
   }
@@ -55,10 +55,13 @@ export class ClassifyComponent implements OnInit {
         event.currentIndex);
 
       this.mapStatements.get(event.container.data[event.currentIndex]).status = status;
-      this.statusBar++;
-      if (this.statements.length > 0) {
-        this.currentStatment = [this.statements.pop()];
+      if (event.previousContainer.id === 'main-list') {
+        this.statusBar++;
+        if (this.statements.length > 0) {
+          this.currentStatment = [this.statements.pop()];
+        }
       }
+
     }
 
   }

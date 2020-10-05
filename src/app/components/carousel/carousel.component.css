@@ -74,18 +74,6 @@ a {
     cursor: pointer;
 }
 
-a:hover .left,
-a:hover .right {
-    border: 0.5em solid #9CC0E7;
-    ;
-}
-
-a:hover .left:after,
-a:hover .right:after {
-    border-top: 0.5em solid #9CC0E7;
-    border-right: 0.5em solid #9CC0E7;
-}
-
 .left {
     display: inline-block;
     width: 3em;

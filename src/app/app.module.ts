@@ -17,17 +17,25 @@ import { ExplainComponent } from './explain/explain.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
 import { FinishComponent } from './components/finish/finish.component';
+import { TelemachyModule } from 'telemachy';
+import { ClassifyInstructionComponent } from './components/instructions/classify-instruction/classify-instruction.component';
+import { QuantifyInstructionComponent } from './components/instructions/quantify-instruction/quantify-instruction.component';
+import { ExplainInstructionComponent } from './components/instructions/explain-instruction/explain-instruction.component';
+
+
 
 
 @NgModule({
@@ -39,7 +47,10 @@ import { FinishComponent } from './components/finish/finish.component';
     RegisterComponent,
     ExplainComponent,
     CarouselComponent,
-    FinishComponent
+    FinishComponent,
+    ClassifyInstructionComponent,
+    QuantifyInstructionComponent,
+    ExplainInstructionComponent
   ],
   imports: [
     BrowserModule,
@@ -47,13 +58,14 @@ import { FinishComponent } from './components/finish/finish.component';
     BrowserAnimationsModule,
     DragDropModule,
     AppRoutingModule,
-    RouterModule,
+    RouterModule.forRoot([]),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
 
+    TelemachyModule,
     MatButtonModule,
     MatProgressBarModule,
     MatFormFieldModule,
@@ -61,9 +73,11 @@ import { FinishComponent } from './components/finish/finish.component';
     MatRadioModule,
     MatCardModule,
     MatInputModule,
+    MatDialogModule,
     MatProgressSpinnerModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ClassifyInstructionComponent, QuantifyInstructionComponent, ExplainInstructionComponent]
 })
 export class AppModule { }

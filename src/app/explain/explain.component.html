@@ -18,8 +18,12 @@
                 </textarea>
 
             </div>
+            
             <div style="display: flex; height: 10%; justify-content: center;">
-                <button style="background-color: #5698dd;" [disabled]="!isFinished()" mat-raised-button color="primary"
+                <button style="background-color: #5698dd; margin: 1em; color: white;" mat-raised-button color="primary"
+                (click)="showInstructions()">Instructions</button>
+
+                <button style="background-color: #5698dd; margin: 1em;" [disabled]="!isFinished()" mat-raised-button color="primary"
                     (click)="nextStep()">Continue</button>
             </div>
 

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { ReaderService } from '../services/reader.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ClassifyInstructionComponent } from '../components/instructions/classify-instruction/classify-instruction.component';
 
 @Component({
   selector: 'app-classify',
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ClassifyComponent implements OnInit {
 
-  constructor(private reader: ReaderService, private router: Router) { }
+  constructor(private reader: ReaderService, private router: Router, public dialogService: MatDialog) { }
 
   public statusBar = 0;
   public maxBar = 0;
@@ -65,8 +67,15 @@ export class ClassifyComponent implements OnInit {
     }
 
   }
+  public showInstructions(): void {
+    this.dialogService.open(ClassifyInstructionComponent);
+  }
 
-  moveFoward(): void {
+  public isMobile(): boolean {
+    return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(navigator.userAgent));
+  }
+
+  public moveFoward(): void {
     this.router.navigate(['/quantify']);
   }
 }

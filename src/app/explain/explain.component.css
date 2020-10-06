@@ -30,7 +30,6 @@ textarea {
 
 .container-page {
   background-color: #fafafa;
-  height: 100%;
   width: 100%;
   overflow-x: hidden;
   justify-content: center;
@@ -50,6 +49,7 @@ textarea {
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding: 4em;
 }
 
 .section-carousel {

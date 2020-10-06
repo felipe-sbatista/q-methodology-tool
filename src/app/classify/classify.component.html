@@ -5,7 +5,6 @@
     </div>
     <div class="main-card">
       <progress [max]="maxBar" [value]="statusBar">
-
       </progress>
 
       <div class="flex-container-column" style="padding: 3em 0.5em;
@@ -26,16 +25,15 @@
 
         <div class="flex-container-row" style="justify-content: space-between; margin-top: 3em;">
 
-
           <div class="example-container container-drag">
-            <h2 class="container-drag-title" style="background-color: #ff7f7f;">Negatives</h2>
+            <h2 class="container-drag-title" style="background-color: #ff7f7f;">Disagree</h2>
 
             <div style="background-color: #ffcccc;" cdkDropList #neutralList="cdkDropList"
               [cdkDropListData]="structures.get('negative')" [cdkDropListConnectedTo]="[positiveList, negativeList]"
               class="example-list" (cdkDropListDropped)="drop($event, 'negative')">
               <div style="background-color: #ffcccc;" class="example-box"
                 *ngFor="let item of structures.get('negative')" cdkDrag>
-                <div class="example-handle" style="color: #ff7f7f;" cdkDragHandle>
+                <div *ngIf="isMobile()" class="example-handle" style="color: #ff7f7f;" cdkDragHandle>
                   <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
                     <path
                       d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
@@ -49,8 +47,6 @@
               </div>
             </div>
           </div>
-
-
 
           <div class="example-container container-drag">
             <h2 class="container-drag-title" style="color: white; background-color: #58534c;">Neutrals</h2>
@@ -61,7 +57,7 @@
               <div style="background-color: #d4c9b9;" class="example-box" *ngFor="let item of structures.get('neutral')"
                 cdkDrag>
                 
-                <div class="example-handle" style="color: #58534c;" cdkDragHandle>
+                <div *ngIf="isMobile()" class="example-handle" style="color: #58534c;" cdkDragHandle>
                   <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
                     <path
                       d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
@@ -72,15 +68,12 @@
 
                 {{item}}
               
-              
               </div>
             </div>
           </div>
 
-
-
           <div class="example-container container-drag">
-            <h2 class="container-drag-title" style="background-color: #4ca64c;">Positives</h2>
+            <h2 class="container-drag-title" style="background-color: #4ca64c;">Agree</h2>
 
             <div style="background-color: #99cc99;" cdkDropList #positiveList="cdkDropList"
               [cdkDropListData]="structures.get('positive')" [cdkDropListConnectedTo]="[neutralList, negativeList]"
@@ -88,7 +81,7 @@
               <div style="background-color: #99cc99;" class="example-box"
                 *ngFor="let item of structures.get('positive')" cdkDrag>
                 
-                <div class="example-handle" style="color: #4ca64c;" cdkDragHandle>
+                <div *ngIf="isMobile()" class="example-handle" style="color: #4ca64c;" cdkDragHandle>
                   <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
                     <path
                       d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
@@ -109,7 +102,10 @@
 
   </div>
   <div class="flex-center" style="margin-top: 3em;">
-    <button style="background-color: #5698dd;" [disabled]="currentStatment.length !== 0" mat-raised-button
+    <button style="background-color: #5698dd; margin: 1em;" mat-raised-button
+      color="primary" (click)="showInstructions()">Instructions</button>
+
+    <button style="background-color: #5698dd; margin: 1em;" [disabled]="currentStatment.length !== 0" mat-raised-button
       color="primary" (click)="moveFoward()">Continue</button>
   </div>
 </div>

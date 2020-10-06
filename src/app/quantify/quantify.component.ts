@@ -3,6 +3,8 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { Router } from '@angular/router';
 import { ReaderService } from '../services/reader.service';
 import { Statement } from '../models/statement';
+import { QuantifyInstructionComponent } from '../components/instructions/quantify-instruction/quantify-instruction.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-quantify',
@@ -22,7 +24,7 @@ export class QuantifyComponent implements OnInit {
   public levelsMap: Map<string, any>;
 
 
-  constructor(private reader: ReaderService, private router: Router) { }
+  constructor(private reader: ReaderService, private router: Router, public dialogService: MatDialog) { }
 
   ngOnInit() {
     if (!this.reader.configuration) {
@@ -122,7 +124,9 @@ export class QuantifyComponent implements OnInit {
   public asIsOrder(a, b) {
     return 1;
   }
-  
 
+  public showInstructions(): void {
+    this.dialogService.open(QuantifyInstructionComponent);
+  }
 
 }

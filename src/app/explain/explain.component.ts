@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ReaderService } from '../services/reader.service';
 import { Statement } from '../models/statement';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ExplainInstructionComponent } from '../components/instructions/explain-instruction/explain-instruction.component';
 
 
 @Component({
@@ -16,7 +18,7 @@ export class ExplainComponent implements OnInit {
   actualItem = new Statement(0, '');
   items = [];
 
-  constructor(private readerService: ReaderService, private router: Router) { }
+  constructor(private readerService: ReaderService, private router: Router, public dialogService: MatDialog) { }
 
   ngOnInit() {
     const level = this.readerService.getHighestLevel();
@@ -48,4 +50,7 @@ export class ExplainComponent implements OnInit {
     this.router.navigate(['/register']);
   }
 
+  public showInstructions(): void {
+    this.dialogService.open(ExplainInstructionComponent);
+  }
 }

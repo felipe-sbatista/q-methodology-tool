@@ -15,7 +15,7 @@
 
 ## Overview 
 
-Q method is lalala
+Q methodology is a type of approach to collect personal opinions and knowledges. This project aims to serve as a tool to apply this kind of survey
 
 ## Dependencies
 
@@ -39,7 +39,7 @@ To clone and run this application, it is necessary [Git](https://git-scm.com) an
 $ git clone https://github.com/felipe-sbatista/q-methodology-tool.git
 
 # Go into the repository
-$ cd electron-markdownify
+$ cd q-methodology-tool
 
 # Install dependencies
 $ npm install

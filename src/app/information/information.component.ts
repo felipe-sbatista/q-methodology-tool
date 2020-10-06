@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HasGuidedTour, TourStep, ElementTourStep } from 'telemachy';
+
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -7,15 +8,11 @@ import { HasGuidedTour, TourStep, ElementTourStep } from 'telemachy';
   templateUrl: './information.component.html',
   styleUrls: ['./information.component.css']
 })
-export class InformationComponent implements OnInit, HasGuidedTour {
+export class InformationComponent implements OnInit {
 
-  constructor() { }
-  tourAutoStart() {return true;}
-
-  getTour(): TourStep[] {
-    return [
-      new ElementTourStep('#startResearch', 'testandooooooooo')
-    ];
+  public language = 'en';
+  constructor(private translateService: TranslateService) {
+    this.translateService.setDefaultLang(this.language );
   }
 
   ngOnInit() {
@@ -23,5 +20,10 @@ export class InformationComponent implements OnInit, HasGuidedTour {
 
   public scroll(el: HTMLElement): void {
     el.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  public change(language: string): void {
+    this.language = language;
+    this.translateService.setDefaultLang(language);
   }
 }

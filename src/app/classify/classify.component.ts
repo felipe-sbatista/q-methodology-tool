@@ -4,6 +4,7 @@ import { ReaderService } from '../services/reader.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ClassifyInstructionComponent } from '../components/instructions/classify-instruction/classify-instruction.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-classify',
@@ -12,7 +13,8 @@ import { ClassifyInstructionComponent } from '../components/instructions/classif
 })
 export class ClassifyComponent implements OnInit {
 
-  constructor(private reader: ReaderService, private router: Router, public dialogService: MatDialog) { }
+  constructor(private reader: ReaderService, private router: Router,
+              public dialogService: MatDialog, private translateService: TranslateService) { }
 
   public statusBar = 0;
   public maxBar = 0;

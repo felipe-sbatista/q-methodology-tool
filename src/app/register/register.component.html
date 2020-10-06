@@ -1,14 +1,14 @@
 <div class="container-page" [ngClass]="{'opacity': isStoring}">
     <div class="container-content">
         <div class="container-title">
-            <h2>Register</h2>
+            <h2>{{'register.name' | translate}}</h2>
         </div>
         <div class="flex-container-column">
 
             <div class="flex-container" style="padding: 1em;">
                 <mat-card>
                     <mat-form-field class="example-full-width">
-                        <mat-label>Country</mat-label>
+                        <mat-label>{{'register.country' | translate}}</mat-label>
                         <input [(ngModel)]="userCountry" matInput>
                     </mat-form-field>
                 </mat-card>
@@ -17,7 +17,7 @@
             <div class="flex-container" style="padding: 1em;">
                 <mat-card>
                     <mat-form-field class="example-full-width">
-                        <mat-label>Age</mat-label>
+                        <mat-label>{{'register.age' | translate}}</mat-label>
                         <input max="99" type="number" [(ngModel)]="userAge" matInput>
                     </mat-form-field>
                 </mat-card>
@@ -26,7 +26,7 @@
             <div class="flex-container" style="padding:1em">
                 <mat-card>
                     <mat-card-subtitle>
-                        Ocupation
+                        {{'register.ocupation' | translate}}
                     </mat-card-subtitle>
                     <div class="flex-container">
                         <mat-radio-group [(ngModel)]="userOcupation">
@@ -40,9 +40,9 @@
 
             <div style="display: flex; height: 10%; justify-content: center;">
                 <button style="background-color: #5698dd; margin: 1em;" [disabled]="!isFinished()" mat-raised-button
-                    color="primary" (click)="export()">Export</button>
+                    color="primary" (click)="export()">{{'buttons.export' | translate}}</button>
                 <button style="background-color: #5698dd; margin: 1em;" [disabled]="!isFinished()" mat-raised-button
-                    color="primary" (click)="nextStep()">Finish</button>
+                    color="primary" (click)="nextStep()">{{'buttons.finish' | translate}}</button>
             </div>
         </div>
     </div>

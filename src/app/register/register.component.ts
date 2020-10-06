@@ -4,6 +4,7 @@ import { ReaderService } from '../services/reader.service';
 import { Statement } from '../models/statement';
 import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 
 
@@ -14,7 +15,8 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private reader: ReaderService, private firebaseService: FirebaseService, private router: Router) { }
+  constructor(private reader: ReaderService, private firebaseService: FirebaseService,
+              private router: Router, private translateService: TranslateService) { }
 
   isStoring = false;
 

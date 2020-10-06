@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -13,6 +13,11 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { InformationComponent } from './information/information.component';
 import { RegisterComponent } from './register/register.component';
 import { ExplainComponent } from './explain/explain.component';
+import { environment } from 'src/environments/environment';
+import { FinishComponent } from './components/finish/finish.component';
+import { ClassifyInstructionComponent } from './components/instructions/classify-instruction/classify-instruction.component';
+import { QuantifyInstructionComponent } from './components/instructions/quantify-instruction/quantify-instruction.component';
+import { ExplainInstructionComponent } from './components/instructions/explain-instruction/explain-instruction.component';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -23,19 +28,21 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import {MatIconModule} from '@angular/material/icon';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { environment } from 'src/environments/environment';
-import { FinishComponent } from './components/finish/finish.component';
-import { TelemachyModule } from 'telemachy';
-import { ClassifyInstructionComponent } from './components/instructions/classify-instruction/classify-instruction.component';
-import { QuantifyInstructionComponent } from './components/instructions/quantify-instruction/quantify-instruction.component';
-import { ExplainInstructionComponent } from './components/instructions/explain-instruction/explain-instruction.component';
 
 
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 
 @NgModule({
@@ -58,10 +65,17 @@ import { ExplainInstructionComponent } from './components/instructions/explain-i
     BrowserAnimationsModule,
     DragDropModule,
     AppRoutingModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     RouterModule.forRoot([]),
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
 
@@ -73,7 +87,9 @@ import { ExplainInstructionComponent } from './components/instructions/explain-i
     MatCardModule,
     MatInputModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent],

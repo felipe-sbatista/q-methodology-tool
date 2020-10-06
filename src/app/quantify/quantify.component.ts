@@ -5,6 +5,7 @@ import { ReaderService } from '../services/reader.service';
 import { Statement } from '../models/statement';
 import { QuantifyInstructionComponent } from '../components/instructions/quantify-instruction/quantify-instruction.component';
 import { MatDialog } from '@angular/material/dialog';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-quantify',
@@ -24,7 +25,8 @@ export class QuantifyComponent implements OnInit {
   public levelsMap: Map<string, any>;
 
 
-  constructor(private reader: ReaderService, private router: Router, public dialogService: MatDialog) { }
+  constructor(private reader: ReaderService, private router: Router,
+              public dialogService: MatDialog, private translateService: TranslateService) { }
 
   ngOnInit() {
     if (!this.reader.configuration) {

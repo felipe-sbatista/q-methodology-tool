@@ -1,22 +1,22 @@
-<h2 mat-dialog-title>Classify</h2>
+<h2 mat-dialog-title>{{'classification.instructions.name' | translate}}</h2>
 <mat-dialog-content class="mat-typography">
-  <h3>Evaluating statements</h3>
-  <p>After reading the statements carefully, you should DRAG and DROP the cards to split them up into 3 piles:
+  <h3>{{'classification.instructions.action' | translate}}</h3>
+  <p>{{'classification.instructions.you-should' | translate}}
 
-    <br> 1. A pile for statements you tend to disagree with;
-    <br> 2. A pile for cards you tend to agree with;
-    <br> 3. A pile for the neutrals.
+    <br> {{'classification.instructions.pile1' | translate}}
+    <br> {{'classification.instructions.pile2' | translate}}
+    <br> {{'classification.instructions.pile3' | translate}}
 
     <br>
     <ng-container *ngIf="isMobile()">
-      <b>Click on the move icon to move the statements between piles</b>
+      <b>{{'classification.instructions.icon' | translate}}</b>
     </ng-container>
 
   </p>
 
-  <h3>Order and quantity</h3>
-  <p>The order per pile or the number of statements per pile does not matter</p>
+  <h3>{{'classification.instructions.order-quantity' | translate}} </h3>
+  <p>{{'classification.instructions.order' | translate}}</p>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button mat-dialog-close>{{'buttons.close' | translate}}</button>
 </mat-dialog-actions>

@@ -1,7 +1,7 @@
 <div class="container-page">
     <div class="container-content">
         <div class="container-title">
-            <h2>Explanation</h2>
+            <h2>{{'explanation.name' | translate}}</h2>
         </div>
         <div class="main-card">
             <div style="display: flex; height: 60%; justify-content: center; width: 100%;">
@@ -13,7 +13,7 @@
             </div>
 
             <div style="display: flex; height: 30%; justify-content: center; width: 100%;">
-                <textarea [(ngModel)]="actualItem.explanation" placeholder="Explain here why you choose -3 or +3 for this statement" cols="45" rows="10">
+                <textarea [(ngModel)]="actualItem.explanation" placeholder="{{'explanation.text-placeholder' | translate}}" cols="45" rows="10">
 
                 </textarea>
 
@@ -21,10 +21,10 @@
             
             <div style="display: flex; height: 10%; justify-content: center;">
                 <button style="background-color: #5698dd; margin: 1em; color: white;" mat-raised-button color="primary"
-                (click)="showInstructions()">Instructions</button>
+                (click)="showInstructions()">{{'buttons.instructions' | translate}}</button>
 
                 <button style="background-color: #5698dd; margin: 1em;" [disabled]="!isFinished()" mat-raised-button color="primary"
-                    (click)="nextStep()">Continue</button>
+                    (click)="nextStep()">{{'buttons.continue' | translate}}</button>
             </div>
 
         </div>

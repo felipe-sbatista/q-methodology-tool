@@ -1,7 +1,7 @@
 <div class="container-page">
   <div class="container-content">
     <div class="container-title">
-      <h2>Classification</h2>
+      <h2>{{'classification.name' | translate}}</h2>
     </div>
     <div class="main-card">
       <progress [max]="maxBar" [value]="statusBar">
@@ -11,7 +11,7 @@
       width: 100%;">
         <div class="flex-center">
           <div class="example-container" style="width: 66%;">
-            <h2 class="container-drag-title" style="background-color: #5698dd;">Statements</h2>
+            <h2 class="container-drag-title" style="background-color: #5698dd;">{{'classification.statements' | translate}}</h2>
 
             <div id="main-list" style="background-color: #9CC0E7;" cdkDropList #mainList="cdkDropList"
               [cdkDropListData]="currentStatment" [cdkDropListConnectedTo]="[positiveList, neutralList, negativeList]"
@@ -26,7 +26,7 @@
         <div class="flex-container-row" style="justify-content: space-between; margin-top: 3em;">
 
           <div class="example-container container-drag">
-            <h2 class="container-drag-title" style="background-color: #ff7f7f;">Disagree</h2>
+            <h2 class="container-drag-title" style="background-color: #ff7f7f;">{{'classification.disagree' | translate}}</h2>
 
             <div style="background-color: #ffcccc;" cdkDropList #neutralList="cdkDropList"
               [cdkDropListData]="structures.get('negative')" [cdkDropListConnectedTo]="[positiveList, negativeList]"
@@ -49,7 +49,7 @@
           </div>
 
           <div class="example-container container-drag">
-            <h2 class="container-drag-title" style="color: white; background-color: #58534c;">Neutrals</h2>
+            <h2 class="container-drag-title" style="color: white; background-color: #58534c;">{{'classification.neutrals' | translate}}</h2>
 
             <div style="background-color: #d4c9b9;" cdkDropList #negativeList="cdkDropList"
               [cdkDropListData]="structures.get('neutral')" [cdkDropListConnectedTo]="[positiveList, neutralList]"
@@ -73,7 +73,7 @@
           </div>
 
           <div class="example-container container-drag">
-            <h2 class="container-drag-title" style="background-color: #4ca64c;">Agree</h2>
+            <h2 class="container-drag-title" style="background-color: #4ca64c;">{{'classification.agree' | translate}}</h2>
 
             <div style="background-color: #99cc99;" cdkDropList #positiveList="cdkDropList"
               [cdkDropListData]="structures.get('positive')" [cdkDropListConnectedTo]="[neutralList, negativeList]"
@@ -103,9 +103,9 @@
   </div>
   <div class="flex-center" style="margin-top: 3em;">
     <button style="background-color: #5698dd; margin: 1em;" mat-raised-button
-      color="primary" (click)="showInstructions()">Instructions</button>
+      color="primary" (click)="showInstructions()">{{'buttons.instructions' | translate}}</button>
 
     <button style="background-color: #5698dd; margin: 1em;" [disabled]="currentStatment.length !== 0" mat-raised-button
-      color="primary" (click)="moveFoward()">Continue</button>
+      color="primary" (click)="moveFoward()">{{'buttons.continue' | translate}}</button>
   </div>
 </div>

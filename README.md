@@ -22,13 +22,14 @@ Q methodology is a type of approach to collect personal opinions and knowledges.
 - [Material](https://material.angular.io/)
 - [Node.js](https://nodejs.org/)
 - [Firebase](https://firebase.google.com/)
+- [ngx-translate](https://github.com/ngx-translate/core)
 
 ## Key Features
 
 * Able to multidevices
 * Statements and classifications configurables by config file
 * Stores or exports the survey
-* Multi-language (EN-PT-FR) ~ In development
+* Multi-language (EN-PT)
 
 ## How To Run
 
@@ -50,16 +51,20 @@ $ npm start or ng serve
 
 ## How To Edit
 
-# Set statements
+<b>Set statements</b>
 To configure for your own survey, you must edit with the expected statements and the number of degree in the statements.json at src/app/assets
 
 ![screenshot](https://raw.githubusercontent.com/felipe-sbatista/q-methodology-tool/master/media/image/statements.png)
 
-# Set database
+<b> Set up i18n and change text </b>
+As you want to change the text in homepage, you must edit the text at en.json which is the default language and after translate at other lang files. At assets/i18n
+
+<b> Set database </b>
 The configured database is Firebase, if you expects to use it, you must create a Firebase project and set up your own credentials in environment.ts at src/app/environments
 
-# Set up hosting
+<b>Set up hosting</b>
 To hosting the application in Firebase you must create a Firebase project and change the configurations at firebase.json
+
 ```bash
 # building to deploy
 $ ng build

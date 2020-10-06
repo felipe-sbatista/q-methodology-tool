@@ -1,7 +1,7 @@
 <div class="container-page">
     <div class="container-content">
         <div class="container-title">
-            <h2>Quantification</h2>
+            <h2>{{'quantification.name' | translate}}</h2>
         </div>
         <div class="main-card">
             <progress [max]="maxBar" [value]="statusBar">
@@ -39,11 +39,11 @@
         </div>
         <div class="flex-center">
             <button style="background-color: #5698dd; margin: 1em;" mat-raised-button color="primary"
-                (click)="showInstructions()">Instructions</button>
+                (click)="showInstructions()">{{'buttons.instructions' | translate}}</button>
             <button style="background-color: #5698dd; margin: 1em;" mat-raised-button color="primary"
-                (click)="moveBack()">Back</button>
+                (click)="moveBack()">{{'buttons.back' | translate}}</button>
             <button style="background-color: #5698dd; margin: 1em;" [disabled]="!isFinished()" mat-raised-button
-                color="primary" (click)="redirectToExplain()">Continue</button>
+                color="primary" (click)="redirectToExplain()">{{'buttons.continue' | translate}}</button>
         </div>
     </div>
 </div>

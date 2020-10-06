@@ -1,0 +1,104 @@
+{
+    "commons":{
+        "statement":"Sentença",
+        "thanks":"Obrigado por colaborar"
+    },
+    "buttons": {
+        "continue": "Continuar",
+        "instructions": "Instruções",
+        "export": "Exportar",
+        "finish": "Finalizar",
+        "back": "Voltar",
+        "close": "Fechar"
+    },
+    "information": {
+        "aboutUs": "Sobre nós",
+        "aboutResearch": "Sobre a pesquisa",
+        "startResearch": "Iniciar questionário",
+        "qmethodology": "Metodologia Q",
+        "texts": {
+            "aims": "Essa pesquisa visa coletar o entendimento das pessoas sobre as Soft Skills",
+            "estimated": "O tempo estimado para completar esse questionário é de 30 minutos",
+            "consent": "DECLARAÇÃO DE CONSENTIMENTO INFORMADO",
+            "filling": "Ao preencher este instrumento de pesquisa, você concorda em permitir que o pesquisador obtenha, use e divulgue as informações anônimas fornecidas conforme descrito abaixo.",
+            "conditions": "CONDIÇÕES E ESTIPULAÇÕES",
+            "first-accept": "1. Eu entendo que todas as informações são confidenciais. Não serei identificado pessoalmente. Concordo em preencher este instrumento de pesquisa para fins de pesquisa e que os dados derivados deste instrumento de pesquisa anônimo podem ser publicados em periódicos, conferências e postagens de blog.",
+            "second-accept": "2. Eu entendo que minha participação neste instrumento de pesquisa é totalmente voluntária e que a recusa em participar não implicará em penalidade ou perda de benefícios. Se eu quiser, posso cancelar minha participação a qualquer momento. Também entendo que, se decidir participar, posso recusar-me a responder a qualquer pergunta que não me sinta confortável em responder.",
+            "third-accept": "3. Entendo que posso entrar em contato com o pesquisador se tiver alguma dúvida sobre esta pesquisa. Estou ciente de que meu consentimento não me beneficiará diretamente. Também estou ciente de que o autor manterá os dados coletados perpetuamente e poderá utilizar os dados para trabalhos acadêmicos futuros.",
+            "fourth-accept": "4. Ao iniciar o questionário, eu livremente dou consentimento e reconheço meus direitos como participante voluntário da pesquisa, conforme descrito acima, e dou consentimento ao pesquisador para usar minhas informações na realização de pesquisas nas áreas mencionadas acima.",
+            "study-about": "Este estudo trata das percepções e comportamentos de pesquisadores, profissionais e alunos das áreas de engenharia de software relacionadas às habilidades sociais em suas experiências.",
+            "SE": "A Engenharia de Software (ES) é uma área que requer diversas habilidades lógicas (Hard Skills), e, dessa forma, essas habilidades foram consideradas as mais importantes no passado. Porém, hoje em dia, as qualidades subjetivas, conhecidas como Soft Skills (SSs) são tão importantes quanto as lógicas, pois os profissionais devem ter capacidade de aprender, trabalhar em equipe, habilidades orais e escritas uma vez que o desenvolvimento de software é resultado das atividades humanas, que muitas vezes incluem capacidades de resolução de problemas, aspectos cognitivos e interação social",
+            "SE-related": "Soft Skills são habilidades relacionadas a personalidades e comportamentos humanos, e não aptidões ou conhecimentos técnicos. Por exemplo, são habilidades que determinam os pontos fortes de alguém como líder, facilitador ou negociador.",
+            "what-are-soft": "O que são Soft Skills?",
+            "some-skills": "Algumas Soft Skills",
+            "communication": "1. Comunicação",
+            "self-th": "2. Autodidata",
+            "organization": "3. Organização",
+            "what-are-hard": "O que são Hard Skills?",
+            "hard-skills-are": "Hard Skills são as habilidades contáveis, é o conhecimento sobre ter uma base sólida em matemática, ciências, engenharia e também habilidades no campo da ciência da computação, como estruturas de dados, análise numérica, gerenciamento de dados, ciência de rede ou linguagens de programação . São as qualidades técnicas que um indivíduo pode ter para realizar uma tarefa ou um trabalho, assim como as linguagens de programação",
+            "some-hard": "Algumas Hard skills:",
+            "ex-java": "1. Programação em Java",
+            "ex-adobe": "2. Adobe XD",
+            "ex-basic": "3. Habilidades básicas de computador (e.g., Email, Spreadsheets)",
+            "importance": "Importância",
+            "the-need": "A necessidade de Soft Skills aumentou junto com a evolução da Engenharia de Software. Nessa perspectiva, essas habilidades humanas tornam-se um fator importante nas exigências do trabalho [1]. Conforme a complexidade dos projetos aumenta com o passar dos anos, a interação humana como se comunicar com colegas de equipe ou mesmo com clientes torna-se algo comum e indispensável. Logo, a indústria não necessita apenas de profissionais com Hard Skills, mas também profissionais que tenham habilidades pessoais bem desenvolvidas [2].",
+            "references": "REFERÊNCIAS"
+        }
+    },
+    "classification": {
+        "name": "Classificação",
+        "statements": "Sentenças",
+        "agree": "Concorda",
+        "disagree": "Discorda",
+        "neutrals": "Neutras",
+        "instructions": {
+            "name": "Classificação",
+            "action": "Classificando as sentenças",
+            "you-should": "Depois de ler as sentenças com cuidado, você deve ARRASTAR e SOLTAR os cartões para agrupá-los nas 3 colunas:",
+            "pile1":"1. Coluna para as sentenças que você tende a discordar;",
+            "pile2":"2. Coluna para as sentenças que você tende a concordar;",
+            "pile3":"3. Coluna para as sentenças neutras",
+            "icon": "Clique no ícone de movimento para mover as sentenças entre as colunas",
+            "order-quantity": "Ordem e quantidade",
+            "order": "A ordem dentro das colunas ou o número de sentenças por coluna não tem importância",
+            "finishing": "Finalizando",
+            "finish-action": "Quando você classificar todas as sentenças, você pode clicar em Continuar ou em Voltar para ver o último passo realizado"
+        }
+    },
+    "quantification": {
+        "name": "Quantificação",
+        "statements": "Sentenças",
+        "agree": "Concorda",
+        "disagree": "Discorda",
+        "neutrals": "Neutras",
+        "instructions": {
+            "name": "Quantificação",
+            "action": "Quantificando as sentenças", 
+            "you-have": "Você precisa quantificar cada sentença de acordo com o seu nível de concordância ou discordância",
+            "example": "Por exemplo, você pode quantificar uma sentença como -3 como uma frase que você mais discorda ou 3 para o que mais concorda.",
+            "order-quantity": "Ordem e quantidade",
+            "order": "A ordem que você quantifica não importa, no entanto, como você pode ver no topo, cada número de classificação tem um limite",
+            "finishing": "Finalizando",
+            "finish-action": "Quando você quantificar todas as sentenças, você pode clicar em Continuar ou em Voltar para ver o último passo realizado"
+        }
+    },
+    "explanation": {
+        "name": "Explicação",
+        "text-placeholder":"Explique aqui porque você escolheu os extremos (e.g., -3 ou 3, -4 ou 4) para essa sentença",
+        "instructions": {
+            "name": "Explicação",
+            "action": "Explicando a classificação das sentenças",
+            "you-have": "Você tem que explicar o motivo pelo qual você classificou essas sentenças como as que você mais concordou ou mais discordou",
+            "order-quantity": "Ordem e quantidade",
+            "order": "A ordem para explicar não importa, você apenas precisa clicar nas setas para trocar para outra sentença. Você precisa explicar todas as sentenças",
+            "finishing": "Finalizando",
+            "finish-action": "Quando você explicar todas as sentenças, você pode clicar em Continuar"
+        }
+    },
+    "register": {
+        "name": "Registrar",
+        "country": "País",
+        "ocupation": "Ocupação",
+        "age": "Idade"
+    }
+}

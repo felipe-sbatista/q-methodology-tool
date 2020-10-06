@@ -4,6 +4,7 @@ import { Statement } from '../models/statement';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ExplainInstructionComponent } from '../components/instructions/explain-instruction/explain-instruction.component';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class ExplainComponent implements OnInit {
   actualItem = new Statement(0, '');
   items = [];
 
-  constructor(private readerService: ReaderService, private router: Router, public dialogService: MatDialog) { }
+  constructor(private readerService: ReaderService, private router: Router,
+              public dialogService: MatDialog, private translateService: TranslateService) { }
 
   ngOnInit() {
     const level = this.readerService.getHighestLevel();

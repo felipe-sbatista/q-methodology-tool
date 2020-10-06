@@ -20,6 +20,36 @@ a {
   background-color: #e8e9eb;
 }
 
+.selected-lang {
+  background-color: #313638;
+  color : white;
+}
+
+.home {
+  min-height: 22em;
+}
+
+.config-btn {
+  font-size: 2em;
+  position: fixed;
+  right: 0;
+}
+
+@media (min-width: 768px) {
+  .config-btn {
+    margin-right: 0.5em;
+    margin-top: 0.3em;
+  }
+}
+
+
+@media (min-width: 1440px) {
+  .config-btn {
+    margin-right: 0.5em;
+    margin-top: 0.3em;
+  }
+}
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;

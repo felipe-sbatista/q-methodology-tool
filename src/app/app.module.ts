@@ -65,7 +65,6 @@ import { ExplainInstructionComponent } from './components/instructions/explain-i
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
 
-    TelemachyModule,
     MatButtonModule,
     MatProgressBarModule,
     MatFormFieldModule,

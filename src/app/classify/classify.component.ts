@@ -17,7 +17,7 @@ export class ClassifyComponent implements OnInit {
   public statusBar = 0;
   public maxBar = 0;
 
-  public mapStatements: Map<string, any>;
+  public mapStatements: Map<string, any> = new Map();
   public statements = [];
   public currentStatment = [];
   public negatives = [];
@@ -37,7 +37,11 @@ export class ClassifyComponent implements OnInit {
       });
     } else {
       this.statusBar = this.maxBar = this.mapStatements.size;
-      this.mapStatements.forEach((v, k) => this.structures.get(v.status).push(k));
+      this.mapStatements.forEach((v, k) => {
+        if (!!this.structures.get(v.status)) {
+          this.structures.get(v.status).push(k);
+        }
+      });
     }
   }
 
